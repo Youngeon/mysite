@@ -30,4 +30,4 @@ def index(request):
     all_cities.append(city_info) 
 
     context = {'all_info': all_cities, 'form': form}
-    return render(request, 'weather/index.html', context)
+    return render(request, 'weather.html', context)
