@@ -18,10 +18,10 @@ from django.conf.urls import url, include
 from django.urls import path
 
 urlpatterns = [
+    url('grappelli/', include('grappelli.urls')),
     url(r'^admin/', admin.site.urls),
     url(r'^', include('mainApp.urls')),
     url(r'^news/', include('news.urls')),
     url(r'^weather/', include('weather.urls')),
-    
-
+    url(r'^feedback/', include('feedback.urls')),
 ] 

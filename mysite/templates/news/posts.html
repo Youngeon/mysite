@@ -1,0 +1,21 @@
+{% extends "mainApp/wrapper.html" %}
+
+{% block title %} Новости {% endblock %}
+
+{% block   content %}
+    <h1>Новостная страница</h1>
+
+    {% if latest_articles_list %}
+
+        {% for a in latest_articles_list %}
+            <a href="{% url 'news:detail' a.id %}"><h3>{{a.title}}</h3></a>
+            <h6>{{a.date|date:"d.m.y "}}</h6>
+            <hr aling="center" width="100%" size="2" color="#281E5D"/>
+            <br />
+        {% endfor %}
+
+    {% else %}
+        Статьи не найдены    
+    {% endif %}
+
+{% endblock %}
