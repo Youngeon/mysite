@@ -24,4 +24,5 @@ urlpatterns = [
     url(r'^news/', include('news.urls')),
     url(r'^weather/', include('weather.urls')),
     url(r'^feedback/', include('feedback.urls')),
+    url(r'^anime/', include('anime.urls')),
 ] 

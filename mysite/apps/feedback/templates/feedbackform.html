@@ -1,11 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    cokkies!!!
-</body>
-</html>
+{% extends "mainApp/wrapper.html" %}
+
+{% block title %} Feedback {% endblock %}
+
+{% block   content %}
+    <h1>Обратная связь</h1>
+
+    <form action="{% url 'feedback:send_mess' article.id %}" method="POST">
+        
+        {% csrf_token %}
+
+        <input type="text" required placeholder="Ваше имя" name="name"><br>
+        <input type="text" required placeholder="Эл. почта" name="mail"><br>
+        <textarea name="text" required="" placeholder="Текст..." cols="30" rows="10"></textarea><br>
+        
+        <button type="submit">Отправить</button>
+    </form>
+
+{% endblock %}
