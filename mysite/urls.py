@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.conf.urls import url, include
 from django.urls import path
+import grappelli
 
 urlpatterns = [
     url(r'^grappelli/', include('grappelli.urls')),
