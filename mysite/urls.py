@@ -18,7 +18,7 @@ from django.conf.urls import url, include
 from django.urls import path
 
 urlpatterns = [
-    url('grappelli/', include('grappelli.urls')),
+    url(r'^grappelli/', include('grappelli.urls')),
     url(r'^admin/', admin.site.urls),
     url(r'^', include('mainApp.urls')),
     url(r'^news/', include('news.urls')),
