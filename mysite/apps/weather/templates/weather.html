@@ -2,7 +2,7 @@
 
 {% block title %}Погода{% endblock %}
 
-{% block   content %}
+{% block content %}
     
     <div class="container mt-5">
         <div class="row">
@@ -19,15 +19,15 @@
            <h2>Информация</h2>
 
           
-          {% for i in all_info %}
+          {% for info in all_info %}
               <div class="alert alert-info">
                <div class="row">
                   <div class="col-4"> 
-                      <b>Город: </b>{{ i.city }}<br>
-                      <b>Температура: </b> {{ i.temp }}<sup>o</sup><br>
+                      <b>Город: </b>{{ info.city }}<br>
+                      <b>Температура: </b> {{ info.temp }}<sup>o</sup><br>
                   </div>
                   <div class="col-4 offset-4 ">
-                      <img src="http://openweathermap.org/img/w/{{ i.icon }}.png" alt="Фото погоды" class="img-thumbnail">
+                      <img src="http://openweathermap.org/img/w/{{ info.icon }}.png" alt="Фото погоды" class="img-thumbnail">
                   </div>
                </div>
               </div>
