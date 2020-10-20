@@ -2,6 +2,7 @@ from django.db import models
 from datetime import date
 import datetime
 from django.utils import timezone
+from django.contrib.auth.models import User
 
 class Articles(models.Model):
     title = models.CharField(max_length = 120)
@@ -19,6 +20,7 @@ class Articles(models.Model):
         verbose_name_plural = 'Статьи'
 
 class Comment(models.Model):
+    author = models.ForeignKey(User, on_delete = models.CASCADE)
     article = models.ForeignKey(Articles, on_delete = models.CASCADE)
     author_name = models.CharField('Имя автора', max_length= 50)
     comment_text = models.CharField('Текст комментария', max_length= 200)

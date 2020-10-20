@@ -1,0 +1,17 @@
+{% extends "mainApp/wrapper.html" %}
+
+{% block title %}Регистрация{% endblock %}
+
+{% block content %}
+    
+  
+<h1>Регистрация</h1>
+<div class="form-griup">
+    <form method='POST'>
+     {% csrf_token %}
+     {{ form.as_p }}
+     <button class="btn btn-primary">Register!</button>   
+    </form>
+</div>   
+
+{% endblock %}

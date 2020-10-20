@@ -15,7 +15,7 @@
     {% if latest_comments_list %}
         {%  for c in latest_comments_list%}
             <p>
-                <strong>{{c.author_name}}</strong>
+                <strong>{{c.author_name}}</strong>({{c.author}})
                 <p>{{c.comment_text}}</p>
             </p>    
         {% endfor %}
@@ -23,7 +23,7 @@
     Комментарии не найдены! Станьте первым
     {% endif %}
     <hr>
-
+    {% if user.is_authenticated %}
     <form action="{% url 'news:leave_comment' article.id %}" method="POST">
         
         {% csrf_token %}
@@ -33,5 +33,8 @@
         
         <button type="submit">Отправить</button>
     </form>
+    {% else %}
+    <h3>Необходима регистрация!!!<h3>
+    {% endif %}
 
 {% endblock %}

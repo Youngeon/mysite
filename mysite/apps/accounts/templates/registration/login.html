@@ -1,0 +1,16 @@
+{% extends "mainApp/wrapper.html" %}
+
+{% block title %}Логин{% endblock %}
+
+{% block content %}
+    
+<h1>Login</h1>
+    <div class="form-griup">
+        <form method='POST'>
+         {% csrf_token %}
+         {{ form.as_p }}
+         <button class="btn btn-primary">Log in!</button>   
+        </form>
+    </div>   
+
+{% endblock %}

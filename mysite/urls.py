@@ -27,4 +27,6 @@ urlpatterns = [
     url(r'^feedback/', include('feedback.urls')),
     url(r'^anime/', include('anime.urls')),
     url(r'^randomizer/', include('randomizer.urls')),
+    url(r'^account/', include('django.contrib.auth.urls')),
+    url(r'^account/', include('accounts.urls')),
 ] 
