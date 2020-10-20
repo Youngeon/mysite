@@ -26,4 +26,5 @@ urlpatterns = [
     url(r'^weather/', include('weather.urls')),
     url(r'^feedback/', include('feedback.urls')),
     url(r'^anime/', include('anime.urls')),
+    url(r'^randomizer/', include('randomizer.urls')),
 ] 
