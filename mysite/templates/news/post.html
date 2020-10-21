@@ -15,9 +15,9 @@
     {% if latest_comments_list %}
         {%  for c in latest_comments_list%}
             <p>
-                <strong>{{c.author_name}}</strong>({{c.author}})
+                <strong>{{c.author_name}}</strong>({{ c.author }})
                 <p>{{c.comment_text}}</p>
-            </p>    
+            </p>
         {% endfor %}
     {% else %}
     Комментарии не найдены! Станьте первым

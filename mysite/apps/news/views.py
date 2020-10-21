@@ -2,6 +2,7 @@ from django.http import Http404, HttpResponseRedirect
 from django.shortcuts import render
 from .models import Articles
 from django.urls import reverse
+from django.contrib.auth.models import User
 
 
 def index(request):
@@ -18,7 +19,7 @@ def detail(request, article_id):
 
     return render(request, 'news/post.html',{'article': a,'latest_comments_list': latest_comments_list})
 
-def leave_comment(request, article_id):
+def leave_comment(request,article_id):
     try:
         a = Articles.objects.get( id = article_id)
     except:
