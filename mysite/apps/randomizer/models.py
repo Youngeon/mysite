@@ -32,6 +32,10 @@ class Item7(models.Model):
     item = models.CharField(max_length=30)
     def __srt__(self):
         return self.item
+class Item8(models.Model):
+    item = models.CharField(max_length=30)
+    def __srt__(self):
+        return self.item
 class Item81(models.Model):
     item = models.CharField(max_length=30)
     def __srt__(self):

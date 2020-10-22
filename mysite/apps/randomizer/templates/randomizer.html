@@ -5,24 +5,33 @@
 {% block content %}
     
     <div class="container mt-5">
-        <div class="row">
+        <div class="">
           <div class="col-4 offset-1">
               <h2></h2>
              <form action="" method="POST">
               {% csrf_token %}
             {{ form.word }}               
-              <input type="submit" name="send" value="Отобразить" class="mt-2 btn-danger">
+              <input type="submit" name="send" value="Отобразить" class="mt-4 btn-primary">
              </form>
           </div>
-          <div class="col-4 offset-1">
-           <h2>Слово:</h2>
+          <div class="col-10 offset-0">
+           <h2>Персонаж:</h2>
 
           
           
               <div class="alert alert-info">
-               <div class="row">
-                  <div class="col-4"> 
-                      <b>{{ info }}</b><br>
+               <div class="">
+                  <div class="col-1"> 
+                      1.Биологическая информация: <b>{{ info.Item1 }}</b><br>
+                      2.Большой багаж: <b>{{ info.Item2 }}</b><br>
+                      3.Здоровье: <b>{{ info.Item3 }}</b><br>
+                      4.Профессия: <b>{{ info.Item4 }}</b><br>
+                      5.Фобии: <b>{{ info.Item5 }}</b><br>
+                      6.Хобби: <b>{{ info.Item6 }}</b><br>
+                      7.Доп.Инфа: <b>{{ info.Item7 }}</b><br>
+                      8.Малый багаж: <b>{{ info.Item8 }}</b><br>
+                      8.1.Доп. условие: <b>{{ info.Item81 }}</b><br>
+                      8.2.Доп. условие: <b>{{ info.Item82 }}</b><br>
                   </div>
                </div>
               </div>
