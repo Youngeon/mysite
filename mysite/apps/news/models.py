@@ -23,7 +23,7 @@ class Comment(models.Model):
     article = models.ForeignKey(Articles, on_delete = models.CASCADE)
     author_name = models.CharField('Имя автора', max_length= 50)
     comment_text = models.CharField('Текст комментария', max_length= 200)
-    author = models.ForeignKey(User,on_delete= models.CASCADE)
+    author = models.ForeignKey(User,on_delete= models.CASCADE,null=True)
 
     def __str__(self):
         return self.author_name

@@ -1,7 +1,7 @@
 {% extends "mainApp/wrapper.html" %}
 
 {% block   content %}
-{% if User.authenticated %}
+{% if user.is_authenticated %}
 <h1>Приветствую Вас {{ user }}</h1>
 {% else %}
 <h1>Приветствую Вас Аноним</h1>
