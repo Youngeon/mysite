@@ -29,4 +29,5 @@ urlpatterns = [
     url(r'^randomizer/', include('randomizer.urls')),
     url(r'^account/', include('django.contrib.auth.urls')),
     url(r'^account/', include('accounts.urls')),
+    url(r'^qubeplot/', include('qubeplot.urls')),
 ] 
