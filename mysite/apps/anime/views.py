@@ -1,23 +1,38 @@
 from django.shortcuts import render
 from .forms import AnimeForm
-from mal import Anime
 from django.http import HttpResponseRedirect
+from .models import Anime
+from jikanpy import Jikan
 
 
 def index(request):
-    # if this is a POST request we need to process the form data
-    if request.method == 'POST':
-        # create a form instance and populate it with data from the request:
-        form = AnimeForm(request.POST)
-        # check whether it's valid:
-        if form.is_valid():
-            # process the data in form.cleaned_data as required
-            # ...
-            # redirect to a new URL:
-            return HttpResponseRedirect('/anime/')
-    # if a GET (or any other method) we'll create a blank form
-    else:
-        form = AnimeForm()
-    print(form)
+    jikan = Jikan()
+    if(request.method == "POST"):# Проверяем запрос
+        form = AnimeForm(request.POST) 
+        form.save()
+    
+    form = AnimeForm() # Erase form 
+    
+    
+    animes = Anime.objects.all()
 
-    return render(request, 'anime.html', {'form': form})
+    all_animes = []
+    for anime in animes:
+        try:
+            inputanime = anime.name
+            res = jikan.search('anime', inputanime, page=1)
+            anime_info = {
+                'title': res["results"][0]["title"],
+                'score': res["results"][0]["score"],
+                'rated': res["results"][0]["rated"],
+                'episodes': res["results"][0]["episodes"],
+                'image': res["results"][0]["image_url"],
+                'synopsis': res["results"][0]["synopsis"]
+            }
+
+            all_animes.append(anime_info) 
+        except:
+            pass
+    print(anime_info['image'])
+    context = {'all_info': all_animes, 'form': form}
+    return render(request, 'anime.html', context)

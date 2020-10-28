@@ -12,7 +12,7 @@
               {% csrf_token %}
               <label for="anime">Аниме</label>
               {{ form.name }}               
-              <input type="submit" name="send" value="Узнать" class="mt-2 btn-info">
+              <input type="submit" name="send" value="Узнать" class="mt-2 btn-info rounded">
              </form>
           </div>
           <div class="col-4 offset-1">
@@ -22,13 +22,15 @@
           {% for i in all_info %}
               <div class="alert alert-info">
                <div class="row">
-                  <div class="col-4"> 
-                      <b>Название ENG: </b>{{ form.name }}<br>
-                      <b>Название JAP: </b> <sup>o</sup><br>
-                  </div>
-                  <div class="col-4 offset-4 ">
-                      <img src="http://openweathermap.org/img/w/{{ i.icon }}.png" alt="Фото погоды" class="img-thumbnail">
-                  </div>
+                  <div class="col-100 rounded"> 
+                      <b>Title: </b>{{ i.title }}
+                      <b>   Score: </b>{{ i.score }} <br>
+                      <b>Episodes: </b>{{ i.episodes }} <br>
+                      <img src="{{ i.image }}" alt="Фото Аниме" class="img-fluid rounded">
+                      <p>{{ i.synopsis }}<p>
+
+                    </div>
+
                </div>
               </div>
           {% endfor %}

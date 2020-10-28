@@ -20,13 +20,13 @@
 
           
           {% for info in all_info %}
-              <div class="alert alert-info">
+              <div class="alert alert-info figure">
                <div class="row">
-                  <div class="col-4"> 
+                  <div class="col-1"> 
                       <b>Город: </b>{{ info.city }}<br>
                       <b>Температура: </b> {{ info.temp }}<sup>o</sup><br>
                   </div>
-                  <div class="col-4 offset-4 ">
+                  <div class="col-5 offset-4 info">
                       <img src="http://openweathermap.org/img/w/{{ info.icon }}.png" alt="Фото погоды" class="img-thumbnail">
                   </div>
                </div>
