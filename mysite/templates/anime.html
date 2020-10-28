@@ -8,12 +8,16 @@
         <div class="row">
           <div class="col-4 offset-1">
               <h2>Поиск аниме</h2>
+            {% if user.is_authenticated%}
              <form action="/anime/" method="POST">
               {% csrf_token %}
-              <label for="anime">Аниме</label>
+              <label for="anime">Аниме:</label>
               {{ form.name }}               
               <input type="submit" name="send" value="Узнать" class="mt-2 btn-info rounded">
              </form>
+            {% else %}
+            <h3>Необходима авторизация</h3>
+            {% endif %}
           </div>
           <div class="col-4 offset-1">
            <h2></h2>
