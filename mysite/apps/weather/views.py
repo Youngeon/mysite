@@ -31,6 +31,6 @@ def index(request):
             all_cities.append(city_info) 
         except:
             pass
-    
-    context = {'all_info': all_cities, 'form': form}
+    all_revcities = reversed(all_cities)
+    context = {'all_info': all_revcities, 'form': form}
     return render(request, 'weather.html', context)

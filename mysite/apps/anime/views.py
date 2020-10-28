@@ -33,6 +33,6 @@ def index(request):
             all_animes.append(anime_info) 
         except:
             pass
-    print(anime_info['image'])
-    context = {'all_info': all_animes, 'form': form}
+    all_revanime  = reversed(all_animes)
+    context = {'all_info': all_revanime, 'form': form}
     return render(request, 'anime.html', context)
